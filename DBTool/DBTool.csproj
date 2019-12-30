@@ -122,16 +122,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\dbhelpers\Src\DBHelpers\DBHelpers.csproj">
-      <Project>{decb23e4-a87d-433f-9066-0428c2c6466e}</Project>
-      <Name>DBHelpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\NetExtend\NetExtend\NetExtend.csproj">
-      <Project>{ba34bcaf-1d23-4637-9ced-9153759807bc}</Project>
-      <Name>NetExtend</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Tools\libexpat.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -141,6 +131,16 @@
     <Content Include="Tools\WinMergeU.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBHelpers\Src\DBHelpers\DBHelpers.csproj">
+      <Project>{decb23e4-a87d-433f-9066-0428c2c6466e}</Project>
+      <Name>DBHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetExtend\NetExtend\NetExtend.csproj">
+      <Project>{ba34bcaf-1d23-4637-9ced-9153759807bc}</Project>
+      <Name>NetExtend</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

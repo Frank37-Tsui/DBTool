@@ -1,0 +1,6 @@
+[submodule "DBHelpers"]
+	path = DBHelpers
+	url = https://github.com/Frank37-Tsui/dbhelpers.git
+[submodule "NetExtend"]
+	path = NetExtend
+	url = https://github.com/Frank37-Tsui/NetExtend.git

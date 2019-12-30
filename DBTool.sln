@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTool", "DBTool\DBTool.csproj", "{6731CAC4-2002-4B4A-9C49-17A3174B6211}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHelpers", "..\dbhelpers\Src\DBHelpers\DBHelpers.csproj", "{DECB23E4-A87D-433F-9066-0428C2C6466E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHelpers", "DBHelpers\Src\DBHelpers\DBHelpers.csproj", "{DECB23E4-A87D-433F-9066-0428C2C6466E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExtend", "..\NetExtend\NetExtend\NetExtend.csproj", "{BA34BCAF-1D23-4637-9CED-9153759807BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExtend", "NetExtend\NetExtend\NetExtend.csproj", "{BA34BCAF-1D23-4637-9CED-9153759807BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
