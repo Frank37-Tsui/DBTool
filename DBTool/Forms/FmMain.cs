@@ -128,7 +128,7 @@ namespace DBTool
                 {                    
                     var sourFile = SqlDefinition.ExportDefinitionToFile(CurrDBConnInfo, sqlObj.Name);
                     var trgtFile = SqlDefinition.ExportDefinitionToFile(info, sqlObj.Name);
-                    var cmd = $@"{System.IO.Directory.GetCurrentDirectory()}\Tools\WinMergeU.exe {sourFile} {trgtFile}";
+                    var cmd = $@"{System.IO.Directory.GetCurrentDirectory()}\Tools\WinMergeU.exe ""{sourFile}"" ""{trgtFile}""";
                     CommandUtils.ExecuteCommandSync(cmd);
                 };
                 TsmiCompare.DropDownItems.Add(miCompare);
