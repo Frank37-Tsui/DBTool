@@ -271,11 +271,7 @@ namespace DBTool
 
                     pDialog.ReportProgress(i++);
                 }                
-            };
-            pDialog.ProgressChanged += delegate (object dialog, ProgressChangedEventArgs pce) {
-                pDialog.Message = $"{pce.ProgressPercentage}/{pDialog.Max}";
-                pDialog.Progress = pce.ProgressPercentage;
-            };
+            };            
             pDialog.Completed += delegate (object dialog, RunWorkerCompletedEventArgs re) {
                 MessageBox.Show("完成");
             };
@@ -311,11 +307,7 @@ namespace DBTool
                     pDialog.ReportProgress(i++);
                 }
 
-            };
-            pDialog.ProgressChanged += delegate (object dialog, ProgressChangedEventArgs pce) {
-                pDialog.Message = $"{pce.ProgressPercentage}/{pDialog.Max}";
-                pDialog.Progress = pce.ProgressPercentage;
-            };
+            };            
             pDialog.Completed += delegate (object dialog, RunWorkerCompletedEventArgs re) {
 
                 var dir = Path.GetDirectoryName(saveFileDlg.FileName);
