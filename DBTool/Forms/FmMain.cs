@@ -11,6 +11,9 @@ using DBHelpers;
 using System.Data.SqlClient;
 using NetExtend.Utils;
 using DBTool.Forms;
+using System.Threading;
+using System.IO;
+using NetExtend.Components;
 
 namespace DBTool
 {
@@ -124,10 +127,11 @@ namespace DBTool
             foreach (var info in DBConnInfoList.Where(x=>x!=CurrDBConnInfo))
             {
                 var miCompare = new ToolStripMenuItem(info.FullName);
+                //比對
                 miCompare.Click += (obj, args) =>
                 {                    
-                    var sourFile = SqlDefinition.ExportDefinitionToFile(CurrDBConnInfo, sqlObj.Name);
-                    var trgtFile = SqlDefinition.ExportDefinitionToFile(info, sqlObj.Name);
+                    var sourFile = SqlDefinition.ExportDefinitionToTempCompareFile(CurrDBConnInfo, sqlObj.Name);
+                    var trgtFile = SqlDefinition.ExportDefinitionToTempCompareFile(info, sqlObj.Name);
                     var cmd = $@"{System.IO.Directory.GetCurrentDirectory()}\Tools\WinMergeU.exe ""{sourFile}"" ""{trgtFile}""";
                     CommandUtils.ExecuteCommandSync(cmd);
                 };
@@ -244,6 +248,82 @@ namespace DBTool
             {
                 fm.ShowDialog(this);
             }
+        }
+
+        private void 個別檔案ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dirDlg = new FolderBrowserDialog();
+            dirDlg.ShowDialog();
+            var dir = dirDlg.SelectedPath;
+
+            ProgressDialog pDialog = new ProgressDialog();
+            pDialog.Title = "SQL物件轉出";
+            pDialog.DoWork += delegate (object dialog, DoWorkEventArgs dwe)
+            {
+                var i = 1;
+                foreach (DataGridViewRow row in DGVObject.Rows)
+                {
+                    var sqlObj = (SqlObject)row.DataBoundItem;
+                    if (!string.IsNullOrEmpty(sqlObj.Definition))
+                    {
+                        SqlDefinition.ExportDefinitionToFile(CurrDBConnInfo, sqlObj.Name, $"{dir}\\{sqlObj.Name}.sql");
+                    }
+
+                    pDialog.ReportProgress(i++);
+                }                
+            };
+            pDialog.ProgressChanged += delegate (object dialog, ProgressChangedEventArgs pce) {
+                pDialog.Message = $"{pce.ProgressPercentage}/{pDialog.Max}";
+                pDialog.Progress = pce.ProgressPercentage;
+            };
+            pDialog.Completed += delegate (object dialog, RunWorkerCompletedEventArgs re) {
+                MessageBox.Show("完成");
+            };
+            pDialog.Run(DGVObject.Rows.Count);
+        }
+
+        private void 合併為單檔ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var exportStrs = new List<string>();
+            SaveFileDialog saveFileDlg = new SaveFileDialog();
+            saveFileDlg.Filter = "SQL|*.sql";
+            saveFileDlg.Title = "轉出SQL檔案";
+            saveFileDlg.ShowDialog();
+            if (string.IsNullOrEmpty(saveFileDlg.FileName)) return;
+
+            ProgressDialog pDialog = new ProgressDialog();
+            pDialog.Title = "SQL物件轉出";
+            pDialog.DoWork += delegate (object dialog, DoWorkEventArgs dwe)
+            {
+                var i = 1;
+                foreach (DataGridViewRow row in DGVObject.Rows)
+                {
+                    var sqlObj = (SqlObject)row.DataBoundItem;
+                    if (!string.IsNullOrEmpty(sqlObj.Definition))
+                    {
+                        exportStrs.Add($"if exists(select 1 from sys.sysobjects where name ='{sqlObj.Name}' and Type='{sqlObj.Type}')");
+                        exportStrs.Add($"Drop {sqlObj.TypeFullName} [{sqlObj.Name}]");
+                        exportStrs.Add("GO");
+                        exportStrs.Add(SqlDefinition.GetDefinition(CurrDBConnInfo, sqlObj.Name));
+                        exportStrs.Add("GO");
+                        exportStrs.Add("");
+                    }
+                    pDialog.ReportProgress(i++);
+                }
+
+            };
+            pDialog.ProgressChanged += delegate (object dialog, ProgressChangedEventArgs pce) {
+                pDialog.Message = $"{pce.ProgressPercentage}/{pDialog.Max}";
+                pDialog.Progress = pce.ProgressPercentage;
+            };
+            pDialog.Completed += delegate (object dialog, RunWorkerCompletedEventArgs re) {
+
+                var dir = Path.GetDirectoryName(saveFileDlg.FileName);
+                if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);                
+                File.WriteAllText(saveFileDlg.FileName, string.Join(Environment.NewLine, exportStrs));
+                MessageBox.Show("完成");
+            };
+            pDialog.Run(DGVObject.Rows.Count);
         }
     }
 }

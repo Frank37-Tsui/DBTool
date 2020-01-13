@@ -37,6 +37,10 @@ namespace DBTool
             return SqlObjTypeMapping.ContainsKey(type) ? SqlObjTypeMapping[type] : "";
         }
 
+        public static string GetTypeFullName(string type)
+        {
+            return SqlObjTypeFullName.ContainsKey(type) ? SqlObjTypeFullName[type] : "";
+        }
 
         public static string GetDefinition(DBConnInfo info, string objName)
         {
@@ -50,16 +54,21 @@ namespace DBTool
             return db.ExecuteScalar<String>("select type from sys.sysobjects where name = {0}", objName).Trim();
         }
 
-        public static string ExportDefinitionToFile(DBConnInfo info, string objName, string file = "")
+        public static string ExportDefinitionToTempCompareFile(DBConnInfo info, string objName, string file = "")
         {
             if (string.IsNullOrWhiteSpace(file))
             {
                 file = $@".\temp\{info.Server}_{info.DBName}_{objName}.sql";                
-            }
+            }            
+            return ExportDefinitionToFile(info, objName, file);
+        }
+        
+        public static string ExportDefinitionToFile(DBConnInfo info, string objName, string file)
+        {            
             var dir = Path.GetDirectoryName(file);
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
             var definition = GetDefinition(info, objName);
-            File.WriteAllText(file, definition);            
+            File.WriteAllText(file, definition);
             return Path.GetFullPath(file);
         }
 

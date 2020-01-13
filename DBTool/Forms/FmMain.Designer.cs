@@ -45,24 +45,27 @@
             this.TsmiCompare = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmiSync = new System.Windows.Forms.ToolStripMenuItem();
             this.同步多處ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.匯出檔案ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.個別檔案ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.合併為單檔ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlCond = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtKeyword = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DGVSqlResult = new System.Windows.Forms.DataGridView();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rtxtSQL = new System.Windows.Forms.RichTextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnExecMulti = new System.Windows.Forms.Button();
+            this.BtnExec = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tSSLName = new System.Windows.Forms.ToolStripStatusLabel();
             this.tSSLServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.tSSLDBName = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.DGVSqlResult = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.BtnExec = new System.Windows.Forms.Button();
-            this.BtnExecMulti = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.rtxtSQL = new System.Windows.Forms.RichTextBox();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.PnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDBConnectInfo)).BeginInit();
             this.CMSDBConnectInfo.SuspendLayout();
@@ -74,10 +77,10 @@
             this.CMSSqlObject.SuspendLayout();
             this.PnlCond.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSqlResult)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlLeft
@@ -194,37 +197,61 @@
             this.檢視內容ToolStripMenuItem,
             this.TsmiCompare,
             this.TsmiSync,
-            this.同步多處ToolStripMenuItem});
+            this.同步多處ToolStripMenuItem,
+            this.匯出檔案ToolStripMenuItem});
             this.CMSSqlObject.Name = "CMSSqlObject";
-            this.CMSSqlObject.Size = new System.Drawing.Size(123, 92);
+            this.CMSSqlObject.Size = new System.Drawing.Size(181, 136);
             this.CMSSqlObject.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // 檢視內容ToolStripMenuItem
             // 
             this.檢視內容ToolStripMenuItem.Name = "檢視內容ToolStripMenuItem";
-            this.檢視內容ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.檢視內容ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.檢視內容ToolStripMenuItem.Text = "檢視內容";
             this.檢視內容ToolStripMenuItem.Click += new System.EventHandler(this.檢視內容ToolStripMenuItem_Click);
             // 
             // TsmiCompare
             // 
             this.TsmiCompare.Name = "TsmiCompare";
-            this.TsmiCompare.Size = new System.Drawing.Size(122, 22);
+            this.TsmiCompare.Size = new System.Drawing.Size(146, 22);
             this.TsmiCompare.Text = "比對";
             // 
             // TsmiSync
             // 
             this.TsmiSync.Name = "TsmiSync";
-            this.TsmiSync.Size = new System.Drawing.Size(122, 22);
+            this.TsmiSync.Size = new System.Drawing.Size(146, 22);
             this.TsmiSync.Text = "同步";
             this.TsmiSync.Click += new System.EventHandler(this.TsmiSync_Click);
             // 
             // 同步多處ToolStripMenuItem
             // 
             this.同步多處ToolStripMenuItem.Name = "同步多處ToolStripMenuItem";
-            this.同步多處ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.同步多處ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.同步多處ToolStripMenuItem.Text = "同步多處";
             this.同步多處ToolStripMenuItem.Click += new System.EventHandler(this.同步多處ToolStripMenuItem_Click);
+            // 
+            // 匯出檔案ToolStripMenuItem
+            // 
+            this.匯出檔案ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.個別檔案ToolStripMenuItem,
+            this.合併為單檔ToolStripMenuItem});
+            this.匯出檔案ToolStripMenuItem.Name = "匯出檔案ToolStripMenuItem";
+            this.匯出檔案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.匯出檔案ToolStripMenuItem.Text = "清單物件匯出";
+            // 
+            // 個別檔案ToolStripMenuItem
+            // 
+            this.個別檔案ToolStripMenuItem.Name = "個別檔案ToolStripMenuItem";
+            this.個別檔案ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.個別檔案ToolStripMenuItem.Text = "個別檔案";
+            this.個別檔案ToolStripMenuItem.Click += new System.EventHandler(this.個別檔案ToolStripMenuItem_Click);
+            // 
+            // 合併為單檔ToolStripMenuItem
+            // 
+            this.合併為單檔ToolStripMenuItem.Name = "合併為單檔ToolStripMenuItem";
+            this.合併為單檔ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.合併為單檔ToolStripMenuItem.Text = "合併為單檔";
+            this.合併為單檔ToolStripMenuItem.Click += new System.EventHandler(this.合併為單檔ToolStripMenuItem_Click);
             // 
             // PnlCond
             // 
@@ -239,7 +266,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(345, 30);
+            this.button1.Location = new System.Drawing.Point(369, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 55);
             this.button1.TabIndex = 2;
@@ -260,7 +287,7 @@
             // 
             this.TxtKeyword.Location = new System.Drawing.Point(62, 27);
             this.TxtKeyword.Name = "TxtKeyword";
-            this.TxtKeyword.Size = new System.Drawing.Size(171, 22);
+            this.TxtKeyword.Size = new System.Drawing.Size(301, 22);
             this.TxtKeyword.TabIndex = 0;
             // 
             // tabPage2
@@ -274,7 +301,89 @@
             this.tabPage2.Size = new System.Drawing.Size(958, 602);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SQL語法";
-            this.tabPage2.UseVisualStyleBackColor = true;            
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DGVSqlResult
+            // 
+            this.DGVSqlResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVSqlResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVSqlResult.Location = new System.Drawing.Point(3, 196);
+            this.DGVSqlResult.Name = "DGVSqlResult";
+            this.DGVSqlResult.RowTemplate.Height = 24;
+            this.DGVSqlResult.Size = new System.Drawing.Size(952, 403);
+            this.DGVSqlResult.TabIndex = 5;
+            // 
+            // splitter2
+            // 
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter2.Location = new System.Drawing.Point(3, 186);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(952, 10);
+            this.splitter2.TabIndex = 9;
+            this.splitter2.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rtxtSQL);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(952, 183);
+            this.panel1.TabIndex = 8;
+            // 
+            // rtxtSQL
+            // 
+            this.rtxtSQL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtSQL.Location = new System.Drawing.Point(0, 0);
+            this.rtxtSQL.Name = "rtxtSQL";
+            this.rtxtSQL.Size = new System.Drawing.Size(952, 152);
+            this.rtxtSQL.TabIndex = 4;
+            this.rtxtSQL.Text = "";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BtnExecMulti);
+            this.panel3.Controls.Add(this.BtnExec);
+            this.panel3.Controls.Add(this.btnSelect);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 152);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(952, 31);
+            this.panel3.TabIndex = 3;
+            // 
+            // BtnExecMulti
+            // 
+            this.BtnExecMulti.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnExecMulti.Location = new System.Drawing.Point(150, 0);
+            this.BtnExecMulti.Name = "BtnExecMulti";
+            this.BtnExecMulti.Size = new System.Drawing.Size(75, 31);
+            this.BtnExecMulti.TabIndex = 2;
+            this.BtnExecMulti.Text = "執行多處";
+            this.BtnExecMulti.UseVisualStyleBackColor = true;
+            this.BtnExecMulti.Click += new System.EventHandler(this.BtnExecMulti_Click);
+            // 
+            // BtnExec
+            // 
+            this.BtnExec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnExec.Location = new System.Drawing.Point(75, 0);
+            this.BtnExec.Name = "BtnExec";
+            this.BtnExec.Size = new System.Drawing.Size(75, 31);
+            this.BtnExec.TabIndex = 1;
+            this.BtnExec.Text = "執行";
+            this.BtnExec.UseVisualStyleBackColor = true;
+            this.BtnExec.Click += new System.EventHandler(this.BtnExec_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSelect.Location = new System.Drawing.Point(0, 0);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 31);
+            this.btnSelect.TabIndex = 0;
+            this.btnSelect.Text = "查詢";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // statusStrip1
             // 
@@ -322,88 +431,6 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
-            // DGVSqlResult
-            // 
-            this.DGVSqlResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVSqlResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGVSqlResult.Location = new System.Drawing.Point(3, 196);
-            this.DGVSqlResult.Name = "DGVSqlResult";
-            this.DGVSqlResult.RowTemplate.Height = 24;
-            this.DGVSqlResult.Size = new System.Drawing.Size(952, 403);
-            this.DGVSqlResult.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rtxtSQL);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(952, 183);
-            this.panel1.TabIndex = 8;
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSelect.Location = new System.Drawing.Point(0, 0);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 31);
-            this.btnSelect.TabIndex = 0;
-            this.btnSelect.Text = "查詢";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // BtnExec
-            // 
-            this.BtnExec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnExec.Location = new System.Drawing.Point(75, 0);
-            this.BtnExec.Name = "BtnExec";
-            this.BtnExec.Size = new System.Drawing.Size(75, 31);
-            this.BtnExec.TabIndex = 1;
-            this.BtnExec.Text = "執行";
-            this.BtnExec.UseVisualStyleBackColor = true;
-            this.BtnExec.Click += new System.EventHandler(this.BtnExec_Click);
-            // 
-            // BtnExecMulti
-            // 
-            this.BtnExecMulti.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnExecMulti.Location = new System.Drawing.Point(150, 0);
-            this.BtnExecMulti.Name = "BtnExecMulti";
-            this.BtnExecMulti.Size = new System.Drawing.Size(75, 31);
-            this.BtnExecMulti.TabIndex = 2;
-            this.BtnExecMulti.Text = "執行多處";
-            this.BtnExecMulti.UseVisualStyleBackColor = true;
-            this.BtnExecMulti.Click += new System.EventHandler(this.BtnExecMulti_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BtnExecMulti);
-            this.panel3.Controls.Add(this.BtnExec);
-            this.panel3.Controls.Add(this.btnSelect);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 152);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(952, 31);
-            this.panel3.TabIndex = 3;
-            // 
-            // rtxtSQL
-            // 
-            this.rtxtSQL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtSQL.Location = new System.Drawing.Point(0, 0);
-            this.rtxtSQL.Name = "rtxtSQL";
-            this.rtxtSQL.Size = new System.Drawing.Size(952, 152);
-            this.rtxtSQL.TabIndex = 4;
-            this.rtxtSQL.Text = "";
-            // 
-            // splitter2
-            // 
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter2.Location = new System.Drawing.Point(3, 186);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(952, 10);
-            this.splitter2.TabIndex = 9;
-            this.splitter2.TabStop = false;
-            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -428,11 +455,11 @@
             this.PnlCond.ResumeLayout(false);
             this.PnlCond.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSqlResult)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -472,6 +499,9 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.DataGridView DGVSqlResult;
         private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.ToolStripMenuItem 匯出檔案ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 個別檔案ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 合併為單檔ToolStripMenuItem;
     }
 }
 

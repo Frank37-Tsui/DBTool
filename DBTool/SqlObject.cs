@@ -18,5 +18,12 @@ namespace DBTool
                 return SqlDefinition.GetTypeDesc(Type.Trim());
             } 
         }
+        public string TypeFullName
+        {
+            get
+            {
+                return SqlDefinition.GetTypeFullName(Type.Trim());
+            }
+        }
     }
 }
