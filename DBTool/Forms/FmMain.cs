@@ -27,6 +27,8 @@ namespace DBTool
             InitializeComponent();            
             InitDGVDBConnectInfo();
             InitDGVObject();
+            CBSqlObjType.DataSource = SqlDefinition.SqlObjTypeMapping.ToList();
+            CBSqlObjType.SelectedIndex = -1;
         }
 
         private void InitDGVObject()
@@ -109,6 +111,12 @@ namespace DBTool
             {
                 sql += " and a.name like {0}";
                 prms.Add(TxtKeyword.Text + "%");
+            }
+
+            if (!string.IsNullOrEmpty(CBSqlObjType.Text))
+            {
+                sql += " and a.type = {1}";
+                prms.Add(((KeyValuePair<string, string>)CBSqlObjType.SelectedValue).Key);
             }
 
             sql += " order by a.name";            

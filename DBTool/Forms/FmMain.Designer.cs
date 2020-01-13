@@ -66,6 +66,8 @@
             this.tSSLServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.tSSLDBName = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CBSqlObjType = new System.Windows.Forms.ComboBox();
             this.PnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDBConnectInfo)).BeginInit();
             this.CMSDBConnectInfo.SuspendLayout();
@@ -200,7 +202,7 @@
             this.同步多處ToolStripMenuItem,
             this.匯出檔案ToolStripMenuItem});
             this.CMSSqlObject.Name = "CMSSqlObject";
-            this.CMSSqlObject.Size = new System.Drawing.Size(181, 136);
+            this.CMSSqlObject.Size = new System.Drawing.Size(147, 114);
             this.CMSSqlObject.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // 檢視內容ToolStripMenuItem
@@ -236,13 +238,13 @@
             this.個別檔案ToolStripMenuItem,
             this.合併為單檔ToolStripMenuItem});
             this.匯出檔案ToolStripMenuItem.Name = "匯出檔案ToolStripMenuItem";
-            this.匯出檔案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.匯出檔案ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.匯出檔案ToolStripMenuItem.Text = "清單物件匯出";
             // 
             // 個別檔案ToolStripMenuItem
             // 
             this.個別檔案ToolStripMenuItem.Name = "個別檔案ToolStripMenuItem";
-            this.個別檔案ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.個別檔案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.個別檔案ToolStripMenuItem.Text = "個別檔案";
             this.個別檔案ToolStripMenuItem.Click += new System.EventHandler(this.個別檔案ToolStripMenuItem_Click);
             // 
@@ -255,6 +257,8 @@
             // 
             // PnlCond
             // 
+            this.PnlCond.Controls.Add(this.CBSqlObjType);
+            this.PnlCond.Controls.Add(this.label2);
             this.PnlCond.Controls.Add(this.button1);
             this.PnlCond.Controls.Add(this.label1);
             this.PnlCond.Controls.Add(this.TxtKeyword);
@@ -266,7 +270,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(369, 27);
+            this.button1.Location = new System.Drawing.Point(399, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 55);
             this.button1.TabIndex = 2;
@@ -285,7 +289,7 @@
             // 
             // TxtKeyword
             // 
-            this.TxtKeyword.Location = new System.Drawing.Point(62, 27);
+            this.TxtKeyword.Location = new System.Drawing.Point(74, 27);
             this.TxtKeyword.Name = "TxtKeyword";
             this.TxtKeyword.Size = new System.Drawing.Size(301, 22);
             this.TxtKeyword.TabIndex = 0;
@@ -431,6 +435,23 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "物件類型";
+            // 
+            // CBSqlObjType
+            // 
+            this.CBSqlObjType.FormattingEnabled = true;
+            this.CBSqlObjType.Location = new System.Drawing.Point(74, 67);
+            this.CBSqlObjType.Name = "CBSqlObjType";
+            this.CBSqlObjType.Size = new System.Drawing.Size(138, 20);
+            this.CBSqlObjType.TabIndex = 4;
+            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -502,6 +523,8 @@
         private System.Windows.Forms.ToolStripMenuItem 匯出檔案ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 個別檔案ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 合併為單檔ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox CBSqlObjType;
+        private System.Windows.Forms.Label label2;
     }
 }
 
